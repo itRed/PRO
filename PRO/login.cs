@@ -44,17 +44,38 @@ namespace PRO
 
         private void button2_Click(object sender, EventArgs e)
         {
-
+            textBox1.Text = "";
+            textBox2.Text = "";
         }
 
         private void button1_Click(object sender, EventArgs e)
         {
+            String userName = textBox2.Text.Trim();
+            String passWd = textBox1.Text.Trim();
+            if (userName != "admin" && passWd != "123")
+            {
+                MessageBox.Show("请输入正确的用户名和密码", "提示");
+                return;
+            }else { 
+                //TODO 用户名和密码正确，则登录主页面
 
+
+            }
         }
 
         private void login_Load(object sender, EventArgs e)
         {
            // this.StartPosition = FormStartPosition.CenterScreen; 
+            this.WindowState = FormWindowState.Maximized;    //最大化窗体
+        }
+
+        private void button3_Click(object sender, EventArgs e)
+        {
+            Application.Exit();
+            // 通知所有消息泵必须终止，并且在处理了消息以后关闭所有应用程序窗口。
+            //  由 .NET Compact Framework 支持。
+
+            //关闭窗口(主程序还没有退去)
         }
     }
 }

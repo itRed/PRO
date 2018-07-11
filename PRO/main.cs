@@ -19,10 +19,7 @@ namespace PRO
 
         private void main_Load(object sender, EventArgs e)
         {
-            login lg = new login();
-           // lg.MdiParent = this;
-            lg.StartPosition = FormStartPosition.CenterScreen;
-            lg.Show();
+           
         }
     }
 }
