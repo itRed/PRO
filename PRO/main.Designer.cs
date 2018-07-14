@@ -176,6 +176,7 @@
             this.toolStripButton1.Text = "系统主页";
             this.toolStripButton1.TextAlign = System.Drawing.ContentAlignment.TopCenter;
             this.toolStripButton1.ToolTipText = "系统主页";
+            this.toolStripButton1.Click += new System.EventHandler(this.toolStripButton1_Click);
             // 
             // toolStripSeparator4
             // 
