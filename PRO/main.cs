@@ -20,7 +20,7 @@ namespace PRO
 
         private void main_Load(object sender, EventArgs e)
         {
-
+            this.Owner.Hide();//隐藏Form1
         }
 
         private void label5_Click(object sender, EventArgs e)
@@ -132,6 +132,11 @@ namespace PRO
         private void toolStripButton1_Click(object sender, EventArgs e)
         {
 
+        }
+
+        private void toolStripButton3_Click(object sender, EventArgs e)
+        {
+            Application.Exit();
         }
     }
 }

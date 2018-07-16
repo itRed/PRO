@@ -6,6 +6,6 @@ F:\Workspaces\visual studio 2013\Projects\PRO\PRO\obj\Debug\PRO.csproj.GenerateR
 F:\Workspaces\visual studio 2013\Projects\PRO\PRO\bin\Debug\PRO.exe.config
 F:\Workspaces\visual studio 2013\Projects\PRO\PRO\bin\Debug\PRO.exe
 F:\Workspaces\visual studio 2013\Projects\PRO\PRO\bin\Debug\PRO.pdb
-F:\Workspaces\visual studio 2013\Projects\PRO\PRO\obj\Debug\PRO.csprojResolveAssemblyReference.cache
 F:\Workspaces\visual studio 2013\Projects\PRO\PRO\obj\Debug\PRO.exe
 F:\Workspaces\visual studio 2013\Projects\PRO\PRO\obj\Debug\PRO.pdb
+F:\Workspaces\visual studio 2013\Projects\PRO\PRO\obj\Debug\PRO.Note.resources

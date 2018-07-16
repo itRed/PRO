@@ -17,7 +17,7 @@ namespace PRO
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new search()); 
+            Application.Run(new Note()); 
         }
     }
 }
