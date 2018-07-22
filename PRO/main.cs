@@ -20,7 +20,18 @@ namespace PRO
 
         private void main_Load(object sender, EventArgs e)
         {
-            this.Owner.Hide();//隐藏Form1
+            //this.Owner.Hide();//隐藏Form1
+            groupBox1.SendToBack();
+            //Combobox.SelectedIndex = Combobox.Items.IndexOf(“默认选中文本”); 
+            billType.SelectedIndex = billType.Items.IndexOf("保养");
+            shipState.SelectedIndex = shipState.Items.IndexOf("未发货");
+            billNeed.SelectedIndex = billNeed.Items.IndexOf("否");
+            billState.SelectedIndex = billState.Items.IndexOf("未开具");
+            area.SelectedIndex = area.Items.IndexOf("四川省");
+            
+            //隐藏页面上需要动态处理的组件
+            label24.Hide();
+            billState.Hide();
         }
 
         private void label5_Click(object sender, EventArgs e)
@@ -76,6 +87,15 @@ namespace PRO
             string nt = note.Text.Trim();
 
             string id = Date.GetTimeStamp();
+            
+            //V0.2添加
+            string debtT = billType.SelectedItem.ToString();//订单类型
+            string areaV = area.SelectedItem.ToString();//地区信息
+            string shipSt = shipState.SelectedItem.ToString();//发货状态
+            string billN = billNeed.SelectedItem.ToString();//是否需要发票
+            string billSt = billState.SelectedItem.ToString();//发票状态
+            string debtV = debt.SelectedItem.ToString();//是否欠款
+            string debtMV = debtM.Text.Trim();//具体钱款数额
 
             MySqlConnection mycon = new MySqlConnection();
             mycon.ConnectionString = ConnectionUtil.connStr;
@@ -137,6 +157,71 @@ namespace PRO
         private void toolStripButton3_Click(object sender, EventArgs e)
         {
             Application.Exit();
+        }
+
+        private void toolStrip2_ItemClicked(object sender, ToolStripItemClickedEventArgs e)
+        {
+
+        }
+
+        private void billNeed_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            string bn = billNeed.SelectedItem.ToString();
+            if (bn.Equals("是"))
+            {
+                label24.Show();
+                billState.Show();
+            }
+            else {
+                label24.Hide();
+                billState.Hide();
+            }
+        }
+
+        private void main_KeyDown(object sender, KeyEventArgs e)
+        {
+            
+        }
+
+        private void main_Load_1(object sender, EventArgs e)
+        {
+            this.Owner.Hide();//隐藏Form1
+            groupBox1.SendToBack();
+            //Combobox.SelectedIndex = Combobox.Items.IndexOf(“默认选中文本”); 
+            billType.SelectedIndex = billType.Items.IndexOf("保养");
+            shipState.SelectedIndex = shipState.Items.IndexOf("未发货");
+            billNeed.SelectedIndex = billNeed.Items.IndexOf("否");
+            billState.SelectedIndex = billState.Items.IndexOf("未开具");
+            area.SelectedIndex = area.Items.IndexOf("四川省");
+            debt.SelectedIndex = debt.Items.IndexOf("否");
+
+            //隐藏页面上需要动态处理的组件
+            label24.Hide();
+            billState.Hide();
+        }
+
+        private void debt_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            string debtStr = debt.SelectedItem.ToString();
+            if (debtStr.Equals("是"))
+            {
+                debtM.Show();
+                label26.Show();
+            }
+            else {
+                debtM.Hide();
+                label26.Hide();
+            }
+        }
+
+        private void groupBox1_Enter(object sender, EventArgs e)
+        {
+
+        }
+
+        private void toolStripButton1_Click_1(object sender, EventArgs e)
+        {
+            
         }
     }
 }

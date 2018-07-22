@@ -58,8 +58,9 @@ namespace PRO
                 return;
             }else { 
                 //TODO 用户名和密码正确，则登录主页面
-
-
+                Note nt = new Note();
+                nt.Show(this);
+                
             }
         }
 
@@ -76,6 +77,11 @@ namespace PRO
             //  由 .NET Compact Framework 支持。
 
             //关闭窗口(主程序还没有退去)
+        }
+
+        private void login_KeyDown(object sender, KeyEventArgs e)
+        {
+           
         }
     }
 }

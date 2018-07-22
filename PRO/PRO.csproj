@@ -67,6 +67,30 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="props\DbTest.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="props\DbTest.Designer.cs">
+      <DependentUpon>DbTest.cs</DependentUpon>
+    </Compile>
+    <Compile Include="props\helpInfo.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="props\helpInfo.Designer.cs">
+      <DependentUpon>helpInfo.cs</DependentUpon>
+    </Compile>
+    <Compile Include="props\userInfo.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="props\userInfo.Designer.cs">
+      <DependentUpon>userInfo.cs</DependentUpon>
+    </Compile>
+    <Compile Include="props\version.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="props\version.Designer.cs">
+      <DependentUpon>version.cs</DependentUpon>
+    </Compile>
     <Compile Include="search.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -90,7 +114,20 @@
     <Compile Include="Properties\Resources.Designer.cs">
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
+      <DesignTime>True</DesignTime>
     </Compile>
+    <EmbeddedResource Include="props\DbTest.resx">
+      <DependentUpon>DbTest.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="props\helpInfo.resx">
+      <DependentUpon>helpInfo.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="props\userInfo.resx">
+      <DependentUpon>userInfo.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="props\version.resx">
+      <DependentUpon>version.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="search.resx">
       <DependentUpon>search.cs</DependentUpon>
     </EmbeddedResource>
@@ -106,6 +143,12 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="images\1.jpg" />
+    <Content Include="images\2.jpg" />
+    <None Include="Resources\2.jpg" />
+    <None Include="Resources\1.jpg" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
