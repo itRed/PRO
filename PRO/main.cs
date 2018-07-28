@@ -11,7 +11,7 @@ using System.Windows.Forms;
 
 namespace PRO
 {
-    public partial class main : Form
+    public partial class main : PRO.MainMaster
     {
         public main()
         {
@@ -96,6 +96,8 @@ namespace PRO
             string billSt = billState.SelectedItem.ToString();//发票状态
             string debtV = debt.SelectedItem.ToString();//是否欠款
             string debtMV = debtM.Text.Trim();//具体钱款数额
+            //TODO 是否需要提醒
+            string remd = "是";
 
             MySqlConnection mycon = new MySqlConnection();
             mycon.ConnectionString = ConnectionUtil.connStr;
@@ -103,9 +105,11 @@ namespace PRO
             MySqlTransaction transaction = mycon.BeginTransaction();//事务必须在try外面赋值不然catch里的
             try
             {
-
-                string sql = "INSERT INTO pro.t_pro (idx, date, machine_num, company, client, type_num, goods, total, subcompany, receivables, address, book_date, send_date, arrival_date, ship_num, logistics, freight, trans_num, tel, note) VALUES ('" + id + "', '" + dt + "', '" + machineNum + "', '" + companyValue + "', '" + ct +
-                    "', '" + typeNum + "', '" + goodsValue + "', '" + totalValue + "', '" + subCompany + "', '" + receiVables + "', '" + addre + "', '" + bookDate + "', '" + sendDate + "', '" + arrivalDate + "', '" + shipNum + "', '" + logistic + "', '" + frei + "', '" + transNum + "', '" + tele + "', '" + nt + "')";
+                string sql = "INSERT INTO pro.t_pro ( idx, date, machine_num, company, client, type_num, goods, total, subcompany, receivables, address, book_date, send_date, arrival_date, ship_num, ship_state, logistics, freight, trans_num, tel, note, type, bill_need, bill_state, area, remind, debt, debtM) VALUES ('" 
+                    + id + "', '" + dt + "', '" + machineNum + "', '" + companyValue + "', '" + ct +
+                    "', '" + typeNum + "', '" + goodsValue + "', '" + totalValue + "', '" + subCompany + "', '" + receiVables + "', '" + addre + "', '"
+                    + bookDate + "', '" + sendDate + "', '" + arrivalDate + "', '" + shipNum + "', '" + shipSt + "','" + logistic + "', '" + frei + "', '" + transNum + "', '"
+                    + tele + "', '" + nt + "','" + debtT + "','" + billN + "','" + billSt + "','" + areaV + "','" + remd + "','" + debtV + "','" + debtMV + "')";
                 MySqlCommand cmd1 = new MySqlCommand(sql, mycon);
                 cmd1.ExecuteNonQuery();
                 transaction.Commit();
@@ -126,6 +130,9 @@ namespace PRO
                 tel.Text = "";
                 trans_num.Text = "";
                 note.Text = "";
+                shipState.Text = "";
+                debtM.Text = "";
+
             }
             catch (Exception ex)
             {
@@ -141,26 +148,6 @@ namespace PRO
                     mycon.Close();
                 }
             }
-
-        }
-
-        private void toolStripButton2_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void toolStripButton1_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void toolStripButton3_Click(object sender, EventArgs e)
-        {
-            Application.Exit();
-        }
-
-        private void toolStrip2_ItemClicked(object sender, ToolStripItemClickedEventArgs e)
-        {
 
         }
 
@@ -217,11 +204,6 @@ namespace PRO
         private void groupBox1_Enter(object sender, EventArgs e)
         {
 
-        }
-
-        private void toolStripButton1_Click_1(object sender, EventArgs e)
-        {
-            
         }
     }
 }

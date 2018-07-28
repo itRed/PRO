@@ -1,4 +1,5 @@
-﻿using System;
+﻿using MySql.Data.MySqlClient;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -10,7 +11,7 @@ using System.Windows.Forms;
 
 namespace PRO
 {
-    public partial class login : Form
+    public partial class login : PRO.Master
     {
         public login()
         {
@@ -50,24 +51,12 @@ namespace PRO
 
         private void button1_Click(object sender, EventArgs e)
         {
-            String userName = textBox2.Text.Trim();
-            String passWd = textBox1.Text.Trim();
-            if (userName != "admin" && passWd != "123")
-            {
-                MessageBox.Show("请输入正确的用户名和密码", "提示");
-                return;
-            }else { 
-                //TODO 用户名和密码正确，则登录主页面
-                Note nt = new Note();
-                nt.Show(this);
-                
-            }
+
         }
 
         private void login_Load(object sender, EventArgs e)
         {
-           // this.StartPosition = FormStartPosition.CenterScreen; 
-            this.WindowState = FormWindowState.Maximized;    //最大化窗体
+           // this.WindowState = FormWindowState.Maximized;    //最大化窗体
         }
 
         private void button3_Click(object sender, EventArgs e)
@@ -81,7 +70,59 @@ namespace PRO
 
         private void login_KeyDown(object sender, KeyEventArgs e)
         {
-           
+
+        }
+
+        private void button1_Click_1(object sender, EventArgs e)
+        {
+            String userName = textBox2.Text.Trim();
+            String passWd = textBox1.Text.Trim();
+
+            if ("".Equals(userName) || "".Equals(passWd))
+            {
+                MessageBox.Show("请输入正确的用户名和密码", "提示");
+                return;
+            }
+            else
+            {
+                MySqlConnection mycon = new MySqlConnection();
+                mycon.ConnectionString = ConnectionUtil.connStr;
+                try
+                {
+                    mycon.Open();
+                    string sql = "SELECT * FROM t_user WHERE user_name = '" + userName + "' AND user_pass = '" + passWd + "'";
+                    MySqlCommand cmd = new MySqlCommand(sql, mycon);
+                    MySqlDataReader read = cmd.ExecuteReader();
+                    InfoUser u = null;
+                    while (read.Read())
+                    {
+                        u = new InfoUser();
+                        u.setUserId(Convert.ToInt32(read.GetValue(0).ToString()));
+                        u.setUserName(read.GetValue(1).ToString());
+                        u.setUserPass(read.GetValue(2).ToString());
+                        break;
+                    }
+                    if (u != null)
+                    {
+                        MessageBox.Show("登录成功", "提示");
+                        //跳转到主页面
+                        Note n = new Note();
+                        n.ShowDialog(this);
+                        this.Close();
+                    }
+                    else
+                    {
+                        MessageBox.Show("用户名或密码不正确，请确认后输入", "提示");
+                        return;
+                    }
+
+
+                }
+                catch (Exception ex1) {
+                    MessageBox.Show(ex1.Message);
+                }
+
+            }
         }
     }
 }

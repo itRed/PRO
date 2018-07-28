@@ -12,7 +12,7 @@ using System.Windows.Forms;
 
 namespace PRO
 {
-    public partial class search : Form
+    public partial class search : PRO.MainMaster
     {
         public search()
         {
@@ -71,18 +71,6 @@ namespace PRO
             // 列表样式
             // this.dataGridView1.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
 
-        }
-
-        private void toolStripButton3_Click(object sender, EventArgs e)
-        {
-            Application.Exit();
-        }
-
-        private void toolStripButton2_Click(object sender, EventArgs e)
-        {
-            main m = new main();
-            m.ShowDialog(this);
-            this.Close();
         }
     }
 }
