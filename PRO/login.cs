@@ -75,8 +75,13 @@ namespace PRO
 
         private void button1_Click_1(object sender, EventArgs e)
         {
-            String userName = textBox2.Text.Trim();
-            String passWd = textBox1.Text.Trim();
+            //String userName = textBox2.Text.Trim();
+            //String passWd = textBox1.Text.Trim();
+
+            //测试使用
+            String userName = "admin";
+            String passWd = "123";
+
 
             if ("".Equals(userName) || "".Equals(passWd))
             {
