@@ -118,7 +118,6 @@
             this.toolStrip2.RenderMode = System.Windows.Forms.ToolStripRenderMode.Professional;
             this.toolStrip2.Size = new System.Drawing.Size(859, 32);
             this.toolStrip2.TabIndex = 66;
-            this.toolStrip2.Text = "、、、、、、、、、、、、、、、、、、、、、、、、、、、、、、、、、";
             // 
             // toolStripButton1
             // 
@@ -187,7 +186,9 @@
             this.Controls.Add(this.toolStrip2);
             this.Controls.Add(this.toolStrip3);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
+            this.KeyPreview = true;
             this.Name = "MainMaster";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "MainMaster";
             this.Load += new System.EventHandler(this.MainMaster_Load);
             this.toolStrip3.ResumeLayout(false);

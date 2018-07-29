@@ -47,6 +47,12 @@
   <ItemGroup>
     <Compile Include="ConnectionUtil.cs" />
     <Compile Include="Date.cs" />
+    <Compile Include="Detail.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Detail.Designer.cs">
+      <DependentUpon>Detail.cs</DependentUpon>
+    </Compile>
     <Compile Include="Glob.cs" />
     <Compile Include="InfoUser.cs" />
     <Compile Include="main.cs">
@@ -111,6 +117,9 @@
     <Compile Include="search.Designer.cs">
       <DependentUpon>search.cs</DependentUpon>
     </Compile>
+    <EmbeddedResource Include="Detail.resx">
+      <DependentUpon>Detail.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="main.resx">
       <DependentUpon>main.cs</DependentUpon>
     </EmbeddedResource>

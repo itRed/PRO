@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Note));
             this.toolStrip1 = new System.Windows.Forms.ToolStrip();
             this.toolStripLabel1 = new System.Windows.Forms.ToolStripLabel();
@@ -40,7 +41,21 @@
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
             this.groupBox3 = new System.Windows.Forms.GroupBox();
+            this.dataGridView1 = new System.Windows.Forms.DataGridView();
+            this.contextMenuStrip4 = new System.Windows.Forms.ContextMenuStrip(this.components);
+            this.详情ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.发票已开具ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.contextMenuStrip1 = new System.Windows.Forms.ContextMenuStrip(this.components);
+            this.contextMenuStrip2 = new System.Windows.Forms.ContextMenuStrip(this.components);
+            this.contextMenuStrip3 = new System.Windows.Forms.ContextMenuStrip(this.components);
+            this.contextMenuStrip5 = new System.Windows.Forms.ContextMenuStrip(this.components);
+            this.订单详情ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.设置已开具发票ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStrip1.SuspendLayout();
+            this.groupBox3.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
+            this.contextMenuStrip4.SuspendLayout();
+            this.contextMenuStrip5.SuspendLayout();
             this.SuspendLayout();
             // 
             // toolStrip1
@@ -122,6 +137,7 @@
             // 
             // groupBox3
             // 
+            this.groupBox3.Controls.Add(this.dataGridView1);
             this.groupBox3.Location = new System.Drawing.Point(612, 278);
             this.groupBox3.Name = "groupBox3";
             this.groupBox3.Size = new System.Drawing.Size(529, 360);
@@ -129,11 +145,80 @@
             this.groupBox3.TabStop = false;
             this.groupBox3.Text = "发票提醒列表";
             // 
+            // dataGridView1
+            // 
+            this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dataGridView1.ContextMenuStrip = this.contextMenuStrip5;
+            this.dataGridView1.Location = new System.Drawing.Point(6, 29);
+            this.dataGridView1.MultiSelect = false;
+            this.dataGridView1.Name = "dataGridView1";
+            this.dataGridView1.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
+            this.dataGridView1.Size = new System.Drawing.Size(517, 325);
+            this.dataGridView1.TabIndex = 0;
+            this.dataGridView1.CellMouseUp += new System.Windows.Forms.DataGridViewCellMouseEventHandler(this.dataGridView1_CellMouseUp);
+            // 
+            // contextMenuStrip4
+            // 
+            this.contextMenuStrip4.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.详情ToolStripMenuItem,
+            this.发票已开具ToolStripMenuItem});
+            this.contextMenuStrip4.Name = "contextMenuStrip4";
+            this.contextMenuStrip4.Size = new System.Drawing.Size(140, 48);
+            // 
+            // 详情ToolStripMenuItem
+            // 
+            this.详情ToolStripMenuItem.Name = "详情ToolStripMenuItem";
+            this.详情ToolStripMenuItem.Size = new System.Drawing.Size(139, 22);
+            this.详情ToolStripMenuItem.Text = "详情";
+            // 
+            // 发票已开具ToolStripMenuItem
+            // 
+            this.发票已开具ToolStripMenuItem.Name = "发票已开具ToolStripMenuItem";
+            this.发票已开具ToolStripMenuItem.Size = new System.Drawing.Size(139, 22);
+            this.发票已开具ToolStripMenuItem.Text = "发票已开具";
+            // 
+            // contextMenuStrip1
+            // 
+            this.contextMenuStrip1.Name = "contextMenuStrip1";
+            this.contextMenuStrip1.Size = new System.Drawing.Size(61, 4);
+            // 
+            // contextMenuStrip2
+            // 
+            this.contextMenuStrip2.Name = "contextMenuStrip2";
+            this.contextMenuStrip2.Size = new System.Drawing.Size(61, 4);
+            // 
+            // contextMenuStrip3
+            // 
+            this.contextMenuStrip3.Name = "contextMenuStrip3";
+            this.contextMenuStrip3.Size = new System.Drawing.Size(61, 4);
+            // 
+            // contextMenuStrip5
+            // 
+            this.contextMenuStrip5.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.订单详情ToolStripMenuItem,
+            this.设置已开具发票ToolStripMenuItem});
+            this.contextMenuStrip5.Name = "contextMenuStrip5";
+            this.contextMenuStrip5.Size = new System.Drawing.Size(166, 48);
+            // 
+            // 订单详情ToolStripMenuItem
+            // 
+            this.订单详情ToolStripMenuItem.Name = "订单详情ToolStripMenuItem";
+            this.订单详情ToolStripMenuItem.Size = new System.Drawing.Size(165, 22);
+            this.订单详情ToolStripMenuItem.Text = "订单详情";
+            this.订单详情ToolStripMenuItem.Click += new System.EventHandler(this.订单详情ToolStripMenuItem_Click);
+            // 
+            // 设置已开具发票ToolStripMenuItem
+            // 
+            this.设置已开具发票ToolStripMenuItem.Name = "设置已开具发票ToolStripMenuItem";
+            this.设置已开具发票ToolStripMenuItem.Size = new System.Drawing.Size(165, 22);
+            this.设置已开具发票ToolStripMenuItem.Text = "设置已开具发票";
+            this.设置已开具发票ToolStripMenuItem.Click += new System.EventHandler(this.设置已开具发票ToolStripMenuItem_Click);
+            // 
             // Note
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1153, 650);
+            this.ClientSize = new System.Drawing.Size(1153, 708);
             this.Controls.Add(this.groupBox3);
             this.Controls.Add(this.groupBox2);
             this.Controls.Add(this.groupBox1);
@@ -149,6 +234,10 @@
             this.Controls.SetChildIndex(this.groupBox3, 0);
             this.toolStrip1.ResumeLayout(false);
             this.toolStrip1.PerformLayout();
+            this.groupBox3.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
+            this.contextMenuStrip4.ResumeLayout(false);
+            this.contextMenuStrip5.ResumeLayout(false);
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -167,5 +256,15 @@
         private System.Windows.Forms.GroupBox groupBox1;
         private System.Windows.Forms.GroupBox groupBox2;
         private System.Windows.Forms.GroupBox groupBox3;
+        private System.Windows.Forms.DataGridView dataGridView1;
+        private System.Windows.Forms.ContextMenuStrip contextMenuStrip1;
+        private System.Windows.Forms.ContextMenuStrip contextMenuStrip2;
+        private System.Windows.Forms.ContextMenuStrip contextMenuStrip3;
+        private System.Windows.Forms.ContextMenuStrip contextMenuStrip4;
+        private System.Windows.Forms.ToolStripMenuItem 详情ToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem 发票已开具ToolStripMenuItem;
+        private System.Windows.Forms.ContextMenuStrip contextMenuStrip5;
+        private System.Windows.Forms.ToolStripMenuItem 订单详情ToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem 设置已开具发票ToolStripMenuItem;
     }
 }
