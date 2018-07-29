@@ -14,6 +14,10 @@ namespace PRO
 {
     public partial class search : PRO.MainMaster
     {
+       static string P_Str_ConnectionStr = string.Format("server={0};user id = {1};port = {2};password=123456;database=pro;pooling = false;", "localhost", "root", 3306);
+       MySqlDataAdapter adapter = null;
+       DataTable P_dt = new DataTable();
+
         public search()
         {
             InitializeComponent();
@@ -23,19 +27,14 @@ namespace PRO
         {
             dataGridView1.ForeColor = Color.Black;
             comboBox1.Text = "四川省";
-            comboBox2.Text = "2018年";
-            comboBox3.Text = "1月";
+            yr.Text = "2018年";
+            mn.Text = "1月";
           
             string constr = ConnectionUtil.connStr; //"server=.;database=School;uid=123;pwd=123;";
-            string P_Str_ConnectionStr = string.Format("server={0};user id = {1};port = {2};password=123456;database=pro;pooling = false;", "localhost", "root", 3306);
             string P_Str_SqlStr = string.Format("SELECT  idx AS 订单编号,type AS 订单类型,area AS 区域, DATE AS 订单日期, machine_num AS 机器编码, company AS 公司, CLIENT AS 客户名称, type_num AS 型号, goods AS 发出货物, total AS 总金额, subcompany AS 分公司金额, receivables AS 收款情况, address AS 客户地址, book_date AS 接单日期, send_date AS 发货日期, arrival_date AS 到货日期, ship_num AS 发货件数, logistics AS 物流, freight AS 运费, trans_num AS 运输单号, tel AS 查询电话, note AS 备注, ship_state AS 运输状态,bill_need AS 需要发票,bill_state AS 发票状态,debt AS 是否欠款,debtM AS 欠款金额 FROM pro.t_pro ");
-            MySqlDataAdapter adapter = new MySqlDataAdapter(P_Str_SqlStr, P_Str_ConnectionStr);
-            DataTable P_dt = new DataTable();
+            adapter = new MySqlDataAdapter(P_Str_SqlStr, P_Str_ConnectionStr);
             adapter.Fill(P_dt);
             this.dataGridView1.DataSource = P_dt;
-
-            // 列表样式
-            // this.dataGridView1.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
 
         }
 
@@ -81,7 +80,6 @@ namespace PRO
                     +"', total = '"+totalV+"', subcompany ='"+subCompanyV+"', receivables = '"+receivablesV+"', address ='"+addressV+"', book_date = '"+bookDateV+"', send_date = '"+sendDateV+"', arrival_date = '"+arrivalDateV+"', ship_num = '"+shipNumV
                     +"', ship_state = '"+shipStateV+"', logistics = '"+logisticsV+"', freight = '"+freightV+"', trans_num = '"+transNumV+"', tel = '"+telV+"', note = '"+noteV+"', type = '"+typeNumV+"', bill_need = '"+billNeedV+"', bill_state = '"+billStateV
                     +"', area = '"+areaV+"', remind ='"+remingV+"', debt = '"+debtV+"', debtM = '"+debtMV+"' WHERE idx = '"+ids+"';";
-                Console.WriteLine("===>"+sql);
                 sb.Append(sql);
             }
             //把得到的数据写入到数据库就行了，
@@ -120,51 +118,61 @@ namespace PRO
 
         private void button1_Click(object sender, EventArgs e)
         {
-            string dateStart = "";//拼接用的年份、月份
-            string dateEnd = "";//拼接用的年份、月份
-            string sqlTemp = "";//
-
-            string areaF = comboBox1.SelectedItem.ToString();//地区信息
+            
+            string areaF = comboBox1.SelectedItem.ToString();
+            string clientF = textBox2.Text.Trim();
+            string nt = textBox4.Text.Trim();//备注信息
+            /**
+            MessageBox.Show("1", "提示");
             string clientF = textBox2.Text.Trim();//客户名称
-            string year = comboBox2.SelectedItem.ToString();//订单年份
-            string month = comboBox3.SelectedItem.ToString();// 订单月份
+            MessageBox.Show("2", "提示");
+            string year = yr.SelectedItem.ToString();//订单年份
+            MessageBox.Show("3", "提示");
+            string mon = mn.SelectedItem.ToString();
+            //string month = comboBox3.SelectedItem.ToString();// 订单月份
+            MessageBox.Show("4", "提示");
+            string note = textBox4.Text.Trim();//备注信息
+             * **/
+            
+            string P_Str_ConnectionStrs = string.Format("server={0};user id = {1};port = {2};password=123456;database=pro;pooling = false;", "localhost", "root", 3306);
+            string sql = "SELECT  type AS 订单类型,area AS 区域, DATE AS 订单日期, machine_num AS 机器编码, company AS 公司, CLIENT AS 客户名称, type_num AS 型号, goods AS 发出货物, total AS 总金额, subcompany AS 分公司金额, receivables AS 收款情况, address AS 客户地址, book_date AS 接单日期, send_date AS 发货日期, arrival_date AS 到货日期, ship_num AS 发货件数, logistics AS 物流, freight AS 运费, trans_num AS 运输单号, tel AS 查询电话, note AS 备注, ship_state AS 运输状态,bill_need AS 需要发票,bill_state AS 发票状态,debt AS 是否欠款,debtM AS 欠款金额 FROM pro.t_pro WHERE area = '" + areaF + "' ";
 
-            if (areaF == "" || clientF == "" || year == "" || month == null) {
+            if (clientF != "") sql += " AND CLIENT LIKE '%" + clientF + "%'";
+            if (nt != "") sql += " AND note LIKE '%" + nt + "%'";
+
+            adapter = new MySqlDataAdapter(string.Format(sql), P_Str_ConnectionStrs);
+            DataTable P_dts = new DataTable();
+            adapter.Fill(P_dts);
+            this.dataGridView1.DataSource = P_dts;
+            
+
+
+            /**
+            if (clientF == "" || year == "" || month == "") {
                 MessageBox.Show("请选择相关条件后再执行查询操作","提示");
                 return;
             }
+            **/
 
             //过滤相关条件，用户进行查询
-            MySqlConnection mycon = new MySqlConnection();
-            mycon.ConnectionString = ConnectionUtil.connStr;
+          //  MySqlConnection mycon = new MySqlConnection();
+          //  mycon.ConnectionString = ConnectionUtil.connStr;
             try
             {
-                mycon.Open();
+             //   mycon.Open();
                 
+                /**
                 if (month != "")
                 {
                     if (year == "") year = "2018年";
                     dateStart = year.Replace("年","")+"-"+month.Replace("月","")+"-01";
                     dateEnd = year.Replace("年","")+"-"+month.Replace("月","")+"-31";
-                    sqlTemp = "";
                 }
+                **/
+                //string P_Str_ConnectionStr = string.Format("server={0};user id = {1};port = {2};password=123456;database=pro;pooling = false;", "localhost", "root", 3306);
+               // string sql = "SELECT  idx AS 订单编号,type AS 订单类型,area AS 区域, DATE AS 订单日期, machine_num AS 机器编码, company AS 公司, CLIENT AS 客户名称, type_num AS 型号, goods AS 发出货物, total AS 总金额, subcompany AS 分公司金额, receivables AS 收款情况, address AS 客户地址, book_date AS 接单日期, send_date AS 发货日期, arrival_date AS 到货日期, ship_num AS 发货件数, logistics AS 物流, freight AS 运费, trans_num AS 运输单号, tel AS 查询电话, note AS 备注, ship_state AS 运输状态,bill_need AS 需要发票,bill_state AS 发票状态,debt AS 是否欠款,debtM AS 欠款金额 FROM pro.t_pro WHERE area='" + areaF + "' ";
+                
                
-
-                string sql = "SELECT  idx AS 订单编号,type AS 订单类型,area AS 区域, DATE AS 订单日期, machine_num AS 机器编码, company AS 公司, CLIENT AS 客户名称, type_num AS 型号, goods AS 发出货物, total AS 总金额, subcompany AS 分公司金额, receivables AS 收款情况, address AS 客户地址, book_date AS 接单日期, send_date AS 发货日期, arrival_date AS 到货日期, ship_num AS 发货件数, logistics AS 物流, freight AS 运费, trans_num AS 运输单号, tel AS 查询电话, note AS 备注, ship_state AS 运输状态,bill_need AS 需要发票,bill_state AS 发票状态,debt AS 是否欠款,debtM AS 欠款金额 FROM pro.t_pro WHERE "
-                MySqlCommand cmd = new MySqlCommand(sql, mycon);
-                int num = cmd.ExecuteNonQuery();
-                if (num > 0)
-                {
-                    MessageBox.Show("本次操作一共保存" + num + "条数据", "提示");
-                }
-                else if (num == 0)
-                {
-                    MessageBox.Show("未对数据进行更新操作", "提示");
-                }
-                else
-                {
-                    MessageBox.Show("操作异常，请稍后重新操作", "提示");
-                }
 
             }
             catch (Exception)
@@ -174,7 +182,7 @@ namespace PRO
             }
             finally
             {
-                mycon.Close();
+               // mycon.Close();
             }
 
         }
