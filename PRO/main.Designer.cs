@@ -665,7 +665,7 @@
             this.Controls.Add(this.button1);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "main";
-            this.Text = "订单管理系统 预览版  V0.1";
+            this.Text = "订单管理系统 V1.0";
             this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
             this.Load += new System.EventHandler(this.main_Load_1);
             this.KeyDown += new System.Windows.Forms.KeyEventHandler(this.main_KeyDown);

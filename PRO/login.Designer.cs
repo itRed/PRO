@@ -136,7 +136,7 @@
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "login";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "订单管理系统   V0.1";
+            this.Text = "订单管理系统   V1.0";
             this.TopMost = true;
             this.Load += new System.EventHandler(this.login_Load);
             this.KeyDown += new System.Windows.Forms.KeyEventHandler(this.login_KeyDown);

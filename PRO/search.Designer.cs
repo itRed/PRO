@@ -31,6 +31,7 @@
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(search));
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.yr = new System.Windows.Forms.ComboBox();
             this.mn = new System.Windows.Forms.ComboBox();
             this.label5 = new System.Windows.Forms.Label();
             this.comboBox1 = new System.Windows.Forms.ComboBox();
@@ -44,7 +45,6 @@
             this.label1 = new System.Windows.Forms.Label();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
             this.button3 = new System.Windows.Forms.Button();
-            this.yr = new System.Windows.Forms.ComboBox();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.groupBox1.SuspendLayout();
             this.groupBox2.SuspendLayout();
@@ -88,6 +88,20 @@
             this.groupBox1.TabIndex = 67;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "查询条件";
+            // 
+            // yr
+            // 
+            this.yr.FormattingEnabled = true;
+            this.yr.Items.AddRange(new object[] {
+            " 2017年",
+            " 2018年",
+            " 2019年",
+            " 2020年",
+            " 2021年"});
+            this.yr.Location = new System.Drawing.Point(471, 27);
+            this.yr.Name = "yr";
+            this.yr.Size = new System.Drawing.Size(60, 21);
+            this.yr.TabIndex = 14;
             // 
             // mn
             // 
@@ -240,9 +254,9 @@
             // groupBox2
             // 
             this.groupBox2.Controls.Add(this.button3);
-            this.groupBox2.Location = new System.Drawing.Point(5, 131);
+            this.groupBox2.Location = new System.Drawing.Point(42, 131);
             this.groupBox2.Name = "groupBox2";
-            this.groupBox2.Size = new System.Drawing.Size(200, 58);
+            this.groupBox2.Size = new System.Drawing.Size(238, 58);
             this.groupBox2.TabIndex = 68;
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "数据操作";
@@ -250,27 +264,13 @@
             // button3
             // 
             this.button3.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.button3.Location = new System.Drawing.Point(17, 19);
+            this.button3.Location = new System.Drawing.Point(71, 19);
             this.button3.Name = "button3";
-            this.button3.Size = new System.Drawing.Size(75, 23);
+            this.button3.Size = new System.Drawing.Size(127, 23);
             this.button3.TabIndex = 0;
-            this.button3.Text = "保  存";
+            this.button3.Text = "保存列表所有数据";
             this.button3.UseVisualStyleBackColor = true;
             this.button3.Click += new System.EventHandler(this.button3_Click);
-            // 
-            // yr
-            // 
-            this.yr.FormattingEnabled = true;
-            this.yr.Items.AddRange(new object[] {
-            " 2017年",
-            " 2018年",
-            " 2019年",
-            " 2020年",
-            " 2021年"});
-            this.yr.Location = new System.Drawing.Point(471, 27);
-            this.yr.Name = "yr";
-            this.yr.Size = new System.Drawing.Size(60, 21);
-            this.yr.TabIndex = 14;
             // 
             // search
             // 
@@ -283,8 +283,7 @@
             this.ForeColor = System.Drawing.SystemColors.ControlDark;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "search";
-            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "订单管理系统 预览版  V0.1";
+            this.Text = "订单管理系统 V1.0";
             this.Load += new System.EventHandler(this.search_Load);
             this.Controls.SetChildIndex(this.dataGridView1, 0);
             this.Controls.SetChildIndex(this.groupBox1, 0);

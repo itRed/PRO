@@ -176,14 +176,14 @@
             // 新增订单ToolStripMenuItem
             // 
             this.新增订单ToolStripMenuItem.Name = "新增订单ToolStripMenuItem";
-            this.新增订单ToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.新增订单ToolStripMenuItem.Size = new System.Drawing.Size(126, 22);
             this.新增订单ToolStripMenuItem.Text = "新增订单";
             this.新增订单ToolStripMenuItem.Click += new System.EventHandler(this.新增订单ToolStripMenuItem_Click);
             // 
             // 取消提醒ToolStripMenuItem
             // 
             this.取消提醒ToolStripMenuItem.Name = "取消提醒ToolStripMenuItem";
-            this.取消提醒ToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.取消提醒ToolStripMenuItem.Size = new System.Drawing.Size(126, 22);
             this.取消提醒ToolStripMenuItem.Text = "取消提醒";
             this.取消提醒ToolStripMenuItem.Click += new System.EventHandler(this.取消提醒ToolStripMenuItem_Click);
             // 
@@ -289,7 +289,7 @@
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "Note";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
-            this.Text = "订单管理系统 预览版  V0.1";
+            this.Text = "订单管理系统 V1.0";
             this.Load += new System.EventHandler(this.Note_Load);
             this.Controls.SetChildIndex(this.toolStrip1, 0);
             this.Controls.SetChildIndex(this.groupBox1, 0);
