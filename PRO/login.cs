@@ -57,6 +57,8 @@ namespace PRO
         private void login_Load(object sender, EventArgs e)
         {
            // this.WindowState = FormWindowState.Maximized;    //最大化窗体
+           // h.Regist(this.Handle, (int)HotKeys.HotkeyModifiers.Control + (int)HotKeys.HotkeyModifiers.Alt, Keys.E, CallBack);
+            
         }
 
         private void button3_Click(object sender, EventArgs e)
@@ -70,17 +72,18 @@ namespace PRO
 
         private void login_KeyDown(object sender, KeyEventArgs e)
         {
-
+            Application.Exit();
         }
+
 
         private void button1_Click_1(object sender, EventArgs e)
         {
-            //String userName = textBox2.Text.Trim();
-            //String passWd = textBox1.Text.Trim();
+            String userName = textBox2.Text.Trim();
+            String passWd = textBox1.Text.Trim();
 
             //测试使用
-            String userName = "admin";
-            String passWd = "123";
+           // String userName = "admin";
+           // String passWd = "123";
 
 
             if ("".Equals(userName) || "".Equals(passWd))

@@ -54,6 +54,7 @@
       <DependentUpon>Detail.cs</DependentUpon>
     </Compile>
     <Compile Include="Glob.cs" />
+    <Compile Include="HotKeys.cs" />
     <Compile Include="InfoUser.cs" />
     <Compile Include="main.cs">
       <SubType>Form</SubType>
