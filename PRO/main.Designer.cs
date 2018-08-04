@@ -174,7 +174,7 @@
             // 
             this.goods.Location = new System.Drawing.Point(363, 33);
             this.goods.Name = "goods";
-            this.goods.Size = new System.Drawing.Size(100, 20);
+            this.goods.Size = new System.Drawing.Size(200, 20);
             this.goods.TabIndex = 27;
             // 
             // receivables
@@ -665,7 +665,6 @@
             this.Controls.Add(this.button1);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "main";
-            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "订单管理系统 预览版  V0.1";
             this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
             this.Load += new System.EventHandler(this.main_Load_1);
